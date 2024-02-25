@@ -1,0 +1,25 @@
+record flattened-json {
+    name:  string,
+    value: string,
+}
+
+record flattened-string {
+    name:  string,
+    value: string,
+}
+
+record flattened-bigint {
+    name:  string,
+    value: s64,
+}
+
+record flattened-double {
+    name:  string,
+    value: float64,
+}
+
+json-flatten-json:   func(json: string, expr: list<string>) -> list<flattened-json>
+json-flatten-bigint: func(json: string, expr: list<string>) -> list<flattened-bigint>
+json-flatten-double: func(json: string, expr: list<string>) -> list<flattened-double>
+json-flatten-string: func(json: string, expr: list<string>) -> list<flattened-string>
+
