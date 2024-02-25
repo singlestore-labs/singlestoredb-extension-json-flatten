@@ -4,6 +4,7 @@ import base64
 from singlestoredb.connection import Cursor
 
 def test_create_functions(singlestoredb_tempdb: Cursor):
+    pass
     #cursor = singlestoredb_tempdb
 
     #wasm = Path.cwd() / "target" / "wasm32-wasi" / "debug" / "json_flatten.wasm"
