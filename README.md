@@ -6,7 +6,7 @@ This extension provides a set of TVFs that perform flattening operations against
 
 ## Contents
 
-**`json_flatten_string`**
+### `json_flatten_string`
 
 Usage: `json_flatten_string(input JSON, exprs: ARRAY(TEXT))`
 
@@ -31,7 +31,7 @@ select * from json_flatten_string('{"a":"b", "c":"d", "e": "f"}', []);
 +------+-------+
 ```
 
-**`json_flatten_bigint`**
+### `json_flatten_bigint`
 
 Usage: `json_flatten_bigint(input JSON, exprs: ARRAY(TEXT))`
 
@@ -56,7 +56,7 @@ select * from json_flatten_bigint('{"a":0, "c":1, "e": 2}', []);
 +------+-------+
 ```
 
-**`json_flatten_double`**
+### `json_flatten_double`
 
 Usage: `json_flatten_double(input JSON, exprs: ARRAY(TEXT))`
 
@@ -81,7 +81,7 @@ select * from json_flatten_double('{"a":1.1, "c":2, "e": 3.0}', []);
 +------+-------+
 ```
 
-**`json_flatten_json`**
+### `json_flatten_json`
 
 Usage: `json_flatten_json(input JSON, exprs: ARRAY(TEXT))`
 
