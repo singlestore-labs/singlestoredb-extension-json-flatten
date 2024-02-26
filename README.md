@@ -8,20 +8,24 @@ This extension provides a set of TVFs that perform flattening operations against
 
 ### `json_flatten_string`
 
-Usage: `json_flatten_string(input JSON, exprs: ARRAY(TEXT))`
+**Usage:**
+`json_flatten_string(input JSON, exprs: ARRAY(TEXT))`
 
-Parameters:
+**Parameters:**
 - input:  The source json object.
 - exprs:  An array of zero or more JSON path expressions.  If it is empty, then the root is assumed (`"$"`).  Multiple paths may be provided; if so, the results are concatenated.
 
-Returns:  A table with two columns, `name` and `value`.  Each `value` will be converted to a string.  If the value is not actully a JSON string, it will be returned as empty.
+**Returns:**
+A table with two columns, `name` and `value`.  Each `value` will be converted to a string.  If the value is not actully a JSON string, it will be returned as empty.
 
-Description:  This function will return a table with the names and values of each object immediately under the specified JSON path(s).  Please note that this function will return *child* objects relative to the path expression(s), therefore if an expression does not refer to a JSON object or an array, an empty set will be the result.
+**Description:**
+This function will return a table with the names and values of each object immediately under the specified JSON path(s).  Please note that this function will return *child* objects relative to the path expression(s), therefore if an expression does not refer to a JSON object or an array, an empty set will be the result.
 
-Example:
-```
+**Example:**
+```sql
 select * from json_flatten_string('{"a":"b", "c":"d", "e": "f"}', []);
-
+```
+```console
 +------+-------+
 | name | value |
 +------+-------+
@@ -33,20 +37,24 @@ select * from json_flatten_string('{"a":"b", "c":"d", "e": "f"}', []);
 
 ### `json_flatten_bigint`
 
-Usage: `json_flatten_bigint(input JSON, exprs: ARRAY(TEXT))`
+**Usage:**
+`json_flatten_bigint(input JSON, exprs: ARRAY(TEXT))`
 
-Parameters:
-- input:  The source json object.
-- exprs:  An array of zero or more JSON path expressions.  If it is empty, then the root is assumed (`"$"`).  Multiple paths may be provided; if so, the results are concatenated.
+**Parameters:**
+- *input*:  The source json object.
+- *exprs*:  An array of zero or more JSON path expressions.  If it is empty, then the root is assumed (`"$"`).  Multiple paths may be provided; if so, the results are concatenated.
 
-Returns:  A table with two columns, `name` and `value`.  Each `value` will be converted to a `BIGINT`.  If the value is not actully a JSON integer, it will be returned as '0'.
+**Returns:**
+A table with two columns, `name` and `value`.  Each `value` will be converted to a `BIGINT`.  If the value is not actully a JSON integer, it will be returned as '0'.
 
-Description:  This function will return a table with the names and values of each object immediately under the specified JSON path(s).  Please note that this function will return *child* objects relative to the path expression(s), therefore if an expression does not refer to a JSON object or an array, an empty set will be the result.
+**Description:**
+This function will return a table with the names and values of each object immediately under the specified JSON path(s).  Please note that this function will return *child* objects relative to the path expression(s), therefore if an expression does not refer to a JSON object or an array, an empty set will be the result.
 
-Example:
-```
+**Example:**
+```sql
 select * from json_flatten_bigint('{"a":0, "c":1, "e": 2}', []);
-
+```
+```console
 +------+-------+
 | name | value |
 +------+-------+
@@ -58,20 +66,24 @@ select * from json_flatten_bigint('{"a":0, "c":1, "e": 2}', []);
 
 ### `json_flatten_double`
 
-Usage: `json_flatten_double(input JSON, exprs: ARRAY(TEXT))`
+**Usage:**
+`json_flatten_double(input JSON, exprs: ARRAY(TEXT))`
 
-Parameters:
-- input:  The source json object.
-- exprs:  An array of zero or more JSON path expressions.  If it is empty, then the root is assumed (`"$"`).  Multiple paths may be provided; if so, the results are concatenated.
+**Parameters:**
+- *input*:  The source json object.
+- *exprs*:  An array of zero or more JSON path expressions.  If it is empty, then the root is assumed (`"$"`).  Multiple paths may be provided; if so, the results are concatenated.
 
-Returns:  A table with two columns, `name` and `value`.  Each `value` will be converted to a `DOUBLE`.  If the value is not actully a JSON floating-point number, it will be returned as '0'.
+**Returns:**
+A table with two columns, `name` and `value`.  Each `value` will be converted to a `DOUBLE`.  If the value is not actully a JSON floating-point number, it will be returned as '0'.
 
-Description:  This function will return a table with the names and values of each object immediately under the specified JSON path(s).  Please note that this function will return *child* objects relative to the path expression(s), therefore if an expression does not refer to a JSON object or an array, an empty set will be the result.
+**Description:**
+This function will return a table with the names and values of each object immediately under the specified JSON path(s).  Please note that this function will return *child* objects relative to the path expression(s), therefore if an expression does not refer to a JSON object or an array, an empty set will be the result.
 
-Example:
-```
+**Example:**
+```sql
 select * from json_flatten_double('{"a":1.1, "c":2, "e": 3.0}', []);
-
+```
+```console
 +------+-------+
 | name | value |
 +------+-------+
@@ -83,20 +95,24 @@ select * from json_flatten_double('{"a":1.1, "c":2, "e": 3.0}', []);
 
 ### `json_flatten_json`
 
-Usage: `json_flatten_json(input JSON, exprs: ARRAY(TEXT))`
+**Usage:**
+`json_flatten_json(input JSON, exprs: ARRAY(TEXT))`
 
-Parameters:
-- input:  The source json object.
-- exprs:  An array of zero or more JSON path expressions.  If it is empty, then the root is assumed (`"$"`).  Multiple paths may be provided; if so, the results are concatenated.
+**Parameters:**
+- *input*:  The source json object.
+- *exprs*:  An array of zero or more JSON path expressions.  If it is empty, then the root is assumed (`"$"`).  Multiple paths may be provided; if so, the results are concatenated.
 
-Returns:  A table with two columns, `name` and `value`.  Each `value` will be returned as a JSON expression.
+**Returns:**
+A table with two columns, `name` and `value`.  Each `value` will be returned as a JSON expression.
 
-Description:  This function will return a table with the names and values of each object immediately under the specified JSON path(s).  Please note that this function will return *child* objects relative to the path expression(s), therefore if an expression does not refer to a JSON object or an array, an empty set will be the result.
+**Description:**
+This function will return a table with the names and values of each object immediately under the specified JSON path(s).  Please note that this function will return *child* objects relative to the path expression(s), therefore if an expression does not refer to a JSON object or an array, an empty set will be the result.
 
-Example:
-```
+**Example:**
+```sql
 select * from json_flatten_json('{"a":1, "c":2.2, "e": "f", "g":{"h":"i", "j":8}}', []);
-
+```
+```console
 +------+-----------------+
 | name | value           |
 +------+-----------------+
@@ -109,7 +125,7 @@ select * from json_flatten_json('{"a":1, "c":2.2, "e": "f", "g":{"h":"i", "j":8}
 
 ## Deployment to SingleStore
 
-To install these functions using the MySQL CLI, you can use the following command.  Replace '$DBUSER`, `$DBHOST`, `$DBPORT`, and `$DBNAME` with, respectively, your database username, hostname, port, and the name of the database where you want to deploy the functions.
+To install these functions using the MySQL CLI, you can use the following command.  Replace `$DBUSER`, `$DBHOST`, `$DBPORT`, and `$DBNAME` with, respectively, your database username, hostname, port, and the name of the database where you want to deploy the functions.
 ```bash
 mysql -u $DBUSER -h $DBHOST -P $DBPORT -D $DBNAME -p < load_standalone.sql
 ```
@@ -117,9 +133,10 @@ mysql -u $DBUSER -h $DBHOST -P $DBPORT -D $DBNAME -p < load_standalone.sql
 ## Additional Examples
 
 Here is an example of flattening a JSON array.  The names are simply returned as the index of each item.
-```
+```sql
 select * from json_flatten_string('["a", "b", "c"]', []);
-
+```
+```console
 +------+-------+
 | name | value |
 +------+-------+
@@ -130,9 +147,10 @@ select * from json_flatten_string('["a", "b", "c"]', []);
 ```
 
 Here is an example of flattening JSON to strings where not every value is actually a string.  The non-string values are returned empty.
-```
+```sql
 select * from json_flatten_string('{"a":9, "b":"c", "d":34.2}', []);
-
+```
+```console
 +------+-------+
 | name | value |
 +------+-------+
@@ -143,9 +161,10 @@ select * from json_flatten_string('{"a":9, "b":"c", "d":34.2}', []);
 ```
 
 Here is an example of flattening an embedded JSON object using a path.
-```
+```sql
 select * from json_flatten_string('{"a":9, "b":{"c":"d", "e":"f"}}', ['$.b']);
-
+```
+```console
 +------+-------+
 | name | value |
 +------+-------+
@@ -155,9 +174,10 @@ select * from json_flatten_string('{"a":9, "b":{"c":"d", "e":"f"}}', ['$.b']);
 ```
 
 Here is an example of passing multiple JSON path expressions.  The results are concatenated.
-```
+```sql
 select * from json_flatten_string('{"a":9, "b":{"c":"d", "e":"f"}, "g":{"h":"i", "j":"k"}}', ['$.b', '$.g']);
-
+```
+```console
 +------+-------+
 | name | value |
 +------+-------+
@@ -169,8 +189,10 @@ select * from json_flatten_string('{"a":9, "b":{"c":"d", "e":"f"}, "g":{"h":"i",
 ```
 
 Here is an example of passing a JSON path to an element that does not have children.  Empty set is returned.
-```
+```sql
 select * from json_flatten_string('{"a":9, "b":"c"}', ['$.a']);
+```
+```console
 Empty set (0.001 sec)
 ```
 
