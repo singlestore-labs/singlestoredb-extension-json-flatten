@@ -68,7 +68,7 @@ emit_function_stmts()
 
     cat <<EOF > "$OUTFILE"
 CREATE $MAYBE_REPLACE FUNCTION json_flatten_json(
-    json JSON NOT NULL,
+    json JSON COLLATE utf8mb4_general_ci NOT NULL,
     expr ARRAY(TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL))
 RETURNS TABLE(
     name TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
@@ -76,7 +76,7 @@ RETURNS TABLE(
 AS WASM FROM $CONTENT_SRC;
 
 CREATE $MAYBE_REPLACE FUNCTION json_flatten_bigint(
-    json JSON NOT NULL,
+    json JSON COLLATE utf8mb4_general_ci NOT NULL,
     expr ARRAY(TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL))
 RETURNS TABLE(
     name TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
@@ -84,7 +84,7 @@ RETURNS TABLE(
 AS WASM FROM $CONTENT_SRC;
 
 CREATE $MAYBE_REPLACE FUNCTION json_flatten_double(
-    json JSON NOT NULL,
+    json JSON COLLATE utf8mb4_general_ci NOT NULL,
     expr ARRAY(TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL))
 RETURNS TABLE(
     name TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
@@ -92,7 +92,7 @@ RETURNS TABLE(
 AS WASM FROM $CONTENT_SRC;
 
 CREATE $MAYBE_REPLACE FUNCTION json_flatten_string(
-    json JSON NOT NULL,
+    json JSON COLLATE utf8mb4_general_ci NOT NULL,
     expr ARRAY(TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL))
 RETURNS TABLE(
     name TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,

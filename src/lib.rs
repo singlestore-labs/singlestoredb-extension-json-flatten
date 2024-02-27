@@ -398,4 +398,16 @@ mod tests {
                 FlattenedJson{ name: "1".to_string(), value: "{\"category\":\"programming\",\"language\":\"en\",\"title\":\"The C Programming Language\",\"authors\":{\"first\":\"Brian Kernighan\",\"second\":\"Dennis Ritchie\"},\"year\":1983,\"price\":53.6}".to_string() },
             ]);
     }
+
+    #[test]
+    fn test_flatten_string_with_emoji() {
+        let res = JsonFlatten::json_flatten_string(
+            r#"{"validate.👿": "foo"}"#.to_string(),
+            ["$".to_string()].to_vec());
+        assert_eq!(
+            res,
+            vec![
+                FlattenedString{ name: "validate.👿".to_string(), value: "foo".to_string() },
+            ]);
+    }
 }
