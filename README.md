@@ -203,13 +203,13 @@ Empty set (0.001 sec)
 In order to build the Wasm
 
 1. Install Rust and Cargo
-2. Install the Rust `wasm32-wasi` target
-3. Run `cargo build --target wasm32-wasi`
+2. Install the Rust `wasm32-wasip1` target
+3. Run `cargo build --target wasm32-wasip1`
 
 To build the extension from the Wasm locally, run the following.
 
 ```bash
-cp ./target/wasm32-wasi/release/json-flatten.wasm ./json-flatten.wasm
+cp ./target/wasm32-wasip1/release/json-flatten.wasm ./json-flatten.wasm
 tar cvf json-flatten.tar json-flatten.sql json-flatten.wasm json-flatten.wit 
 ```
 

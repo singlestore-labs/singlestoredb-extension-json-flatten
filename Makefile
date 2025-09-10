@@ -16,7 +16,7 @@ all: loader_standalone loader_extension
 
 .PHONY: wasm
 wasm:
-	cargo wasi build --lib $(RELFLAGS)
+	cargo build --target=wasm32-wasip1 --lib $(RELFLAGS)
 
 .PHONY: loader_standalone
 loader_standalone: wasm
@@ -39,7 +39,7 @@ extension: wasm
 	@tar --transform 's/.*\///g' -cvf target/$(MODULE).tar \
 		$(MODULE).sql \
 		$(MODULE).wit \
-		target/wasm32-wasi/$(MODE)/$(MODULE).wasm \
+		target/wasm32-wasip1/$(MODE)/$(MODULE).wasm \
 		    > /dev/null
 
 .PHONY: clean
